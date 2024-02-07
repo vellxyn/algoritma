@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+function hitungKeuntungan(jumlahTiket, kelas) {
+  // Ketentuan keuntungan
+  var keuntungan = 0;
+  if (jumlahTiket >= 35) {
+    keuntungan = 25;
+  } else if (jumlahTiket >= 20) {
+    keuntungan = 15;
+  } else {
+    keuntungan = 5;
+  }
+
+  // Hitung keuntungan
+  return jumlahTiket * keuntungan / 100;
+}
+   // Event handler untuk tombol "Hitung"
+document.querySelector("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  // Dapatkan data input
+  var jumlahTiketVIP = document.querySelector("#jumlah-tiket-vip").value;
+  var jumlahTiketEksekutif = document.querySelector("#jumlah-tiket-eksekutif").value;
+  var jumlahTiketEkonomi = document.querySelector("#jumlah-tiket-ekonomi").value;
+
+  // Hitung keuntungan per kelas
+  var keuntunganVIP = hitungKeuntungan(jumlahTiketVIP, "VIP");
+  var keuntunganEksekutif = hitungKeuntungan(jumlahTiketEksekutif, "Eksekutif");
+  var keuntunganEkonomi = hitungKeuntungan(jumlahTiketEkonomi, "Ekonomi");
+
+  // Hitung keuntungan secara keseluruhan
+  var keuntunganTotal = keuntunganVIP + keuntunganEksekutif + keuntunganEkonomi;
+
+  // Tampilkan output
+  var outputVIP = `
+    <p>Kelas VIP: ${keuntunganVIP}%</p>
+  `;
+  var outputEksekutif = `
+    <p>Kelas Eksekutif: ${keuntunganEksekutif}%</p>
+  `;
+  var outputEkonomi = `
+    <p>Kelas Ekonomi: ${keuntunganEkonomi}%</p>
+  `;
+  var outputTotal = `
+    <p>Keuntungan secara keseluruhan: ${keuntunganTotal}%</p>
+  `;
+
+  document.getElementById("output-vip").innerHTML = outputVIP;
+  document.getElementById("output-eksekutif").innerHTML = outputEksekutif;
+  document.getElementById("output-ekonomi").innerHTML = outputEkonomi;
+  document.getElementById("output-total").innerHTML = outputTotal;
+});
+
+  
+    </script>
+</body>
+</html>

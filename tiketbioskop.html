@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+// Deklarasi variabel
+let tiketVIPTerjual = 0;
+let tiketEksekutifTerjual = 0;
+let tiketEkonomiTerjual = 0;
+let hargaTiketVIP = 100000;
+let hargaTiketEksekutif = 75000;
+let hargaTiketEkonomi = 50000;
+
+// Inputan jumlah tiket yang terjual per kelas
+tiketVIPTerjual = prompt("Jumlah tiket VIP yang terjual: ");
+tiketEksekutifTerjual = prompt("Jumlah tiket Eksekutif yang terjual: ");
+tiketEkonomiTerjual = prompt("Jumlah tiket Ekonomi yang terjual: ");
+
+// Hitung keuntungan per kelas
+let keuntunganTiketVIP = hitungKeuntungan(tiketVIPTerjual, hargaTiketVIP);
+let keuntunganTiketEksekutif = hitungKeuntungan(tiketEksekutifTerjual, hargaTiketEksekutif);
+let keuntunganTiketEkonomi = hitungKeuntungan(tiketEkonomiTerjual, hargaTiketEkonomi);
+
+// Hitung keuntungan secara keseluruhan
+let keuntunganTotal = keuntunganTiketVIP + keuntunganTiketEksekutif + keuntunganTiketEkonomi;
+
+// Hitung total tiket dari seluruh kelas
+let totalTiket = tiketVIPTerjual + tiketEksekutifTerjual + tiketEkonomiTerjual;
+
+// Tampilkan output
+console.log("Keuntungan per kelas:");
+console.log("- Tiket VIP: Rp.", keuntunganTiketVIP);
+console.log("- Tiket Eksekutif: Rp.", keuntunganTiketEksekutif);
+console.log("- Tiket Ekonomi: Rp.", keuntunganTiketEkonomi);
+console.log("Keuntungan secara keseluruhan: Rp.", keuntunganTotal);
+console.log("Jumlah tiket per kelas:");
+console.log("- Tiket VIP:", tiketVIPTerjual);
+console.log("- Tiket Eksekutif:", tiketEksekutifTerjual);
+console.log("- Tiket Ekonomi:", tiketEkonomiTerjual);
+console.log("Total tiket dari seluruh kelas:", totalTiket);
+
+// Fungsi untuk menghitung keuntungan
+function hitungKeuntungan(jumlahTiket, hargaTiket) {
+  let keuntungan;
+  if (jumlahTiket >= 35) {
+    keuntungan = 0.25 * hargaTiket * jumlahTiket;
+  } else if (jumlahTiket >= 20) {
+    keuntungan = 0.15 * hargaTiket * jumlahTiket;
+  } else {
+    keuntungan = 0.05 * hargaTiket * jumlahTiket;
+  }
+  return keuntungan;
+}
+
+
+
+    
+    </script>
+</body>
+</html>
